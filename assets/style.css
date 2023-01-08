@@ -1,5 +1,5 @@
 /* link google fonts */
-
+/* change font type? */
 * {
     font-family: 'Playfair Display SC', serif;
     box-sizing: border-box;
@@ -17,10 +17,10 @@ body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
-    background-image: ;
+    /* background-image: ;
     background-repeat: ;
     background-position: ; 
-    background-size: cover;
+    background-size: cover; */
     /* background-color: black;
      color: antiquewhite; */
 }
@@ -36,6 +36,7 @@ main {
 
 footer {
     text-align: center;
+    
 }
 
 .questions-page {
@@ -74,7 +75,41 @@ li {
     background-color: fuchsia;
 }
 
+#view-highscores {
+    background: #F28500;
+    border-radius: 1rem;
+    cursor: grab;
+}
+
+#view-highscores:hover {
+    background-color: hotpink;
+}
+
+
+
 .questions-page, .submit-page, .highscores-page, #result-line {
     display: none;
 }
 
+/* Media Query */
+/* Extra small devices (phones, 600px and down) */
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    body {background: darkgray;}
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    body{background: white;}
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    body {background: darkgray;}
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    body {background: white;}
+  }
