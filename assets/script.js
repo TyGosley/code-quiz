@@ -115,16 +115,17 @@ function startQuiz() {
     showQuestion(questionIndex);
 }
 
+
 function showQuestion(n) {
     console.log(questionArray);
     askQuestion.textContent = questionArray[n].question;
-    answerButton1.textContent = questionArray[0].choices;
-    answerButton2.textContent = questionArray[1].choices;
-    answerButton3.textContent = questionArray[2].choices;
-    answerButton4.textContent = questionArray[3].choices;
-    questionNumber = n;
+    answerButton1.textContent = questionArray[n].choices[0];
+    answerButton2.textContent = questionArray[n].choices[1];
+    answerButton3.textContent = questionArray[n].choices[2];
+    answerButton4.textContent = questionArray[n].choices[3];
+    questionIndex = n;
 }
-// TODO, I think this is why my questions stop working after 2
+
 function checkAnswer(event) {
     event.preventDefault();
     resultLine.style.display = "block";
