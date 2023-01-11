@@ -2,7 +2,7 @@
 
 let welcomeInstructions = document.querySelector("#instructions");
 let startButton = document.querySelector("#start-button");
-let welcomePage = document.querySelector("welcome-page");
+let welcomePage = document.querySelector("#welcome-page");
 
 let questionsPage = document.querySelector("#questions-page");
 let askQuestion = document.querySelector("#ask-question");
@@ -13,10 +13,11 @@ let answerButton2 = document.querySelectorAll("#answer-button2");
 let answerButton3 = document.querySelectorAll("#answer-button3");
 let answerButton4 = document.querySelectorAll("#answer-button4");
 
-let resultLine = document.querySelector("result-line");
-let scores = document.querySelector("submit-page");
-let finalScore = document.querySelector("final-score");
-let userInitials = document.querySelector("initials");
+// TODO: Need to add . or # in querySelector
+let resultLine = document.querySelector("#result-line");
+let scores = document.querySelector("#submit-page");
+let finalScore = document.querySelector("#final-score");
+let userInitials = document.querySelector("#initials");
 
 let submitButton = document.querySelector("#submit-button");
 let highScorePage = document.querySelector("#highscore-page");
@@ -26,11 +27,11 @@ let finish = document.querySelector("#finish");
 
 let backButton = document.querySelector("#back-button");
 let clearButton = document.querySelector("#clear-button");
-let timeLeft =document.getElementById("timer");
-let seconds =75;
+let timeLeft = document.getElementById("timer");
+let secondsLeft = 75;
 let questionIndex = 0;
 let totalScore = 0;
-let questionCount =1;
+let questionCount = 1;
 
 // Create & define questions here
 // Placeholder questions
@@ -82,21 +83,23 @@ let questionArray = [
 // When I click the start button, THEN a time starts.  Use setInterval here
 
 function countDown() {
-    let timerInterval = setInterval(function() {
+    let timerInterval = setInterval(function () {
         secondsLeft--;
         timeLeft.textContent = "Time left: " + secondsLeft + " s";
 
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
-            timeLeft.textContent = "Time is up!";
-            finish.textContent = "Time is up!";
+            timeLeft.textContent = "Time's up!";
+            finish.textContent = "Time's up!";
             gameOver();
-        } else (questionCount >=questionArray.length + 1) 
+        } else if (questionCount >= questionArray.length + 1) {
             clearInterval(timerInterval);
             gameOver();
-        })
-        
-    } 1000;
+
+        }
+    }, 1000)
+
+} 
 
 
 // to start quiz click start button
@@ -109,11 +112,12 @@ function startQuiz() {
 }
 // Is this labeled right?
 function showQuestion(n) {
+    console.log(questionArray);
     askQuestion.textContent = questionArray[n].question;
-    answerButton1.textContent = questionArray.choices[0];
-    answerButton2.textContent = questionArray.choices[1];
-    answerButton3.textContent = questionArray.choices[2];
-    answerButton4.textContent = questionArray.choices[3];
+    answerButton1.textContent = questionArray[0].choices;
+    answerButton2.textContent = questionArray[1].choices;
+    answerButton3.textContent = questionArray[2].choices;
+    answerButton4.textContent = questionArray[3].choices;
     questionNumber = n;
 }
 
@@ -123,25 +127,25 @@ function checkAnswer(event) {
     setTimeout(function () {
         resultLine.style.display = "none";
     }, 1000);
-}
-// WHY IS THIS NOT WORKING?
-if (questionArray[questionIndex].answer == event.target.value) {
-    resultLine.textContent = "Correct!!!";
-    totalScore = totalScore + 10;
-}else {
-    secondsLeft = secondsLeft -10;
-    resultLine.textContent = "Incorrect!!!" 
-} 
+    // WHY IS THIS NOT WORKING?
+    if (questionArray[questionIndex].answer == event.target.value) {
+        resultLine.textContent = "Correct!!!";
+        totalScore = totalScore + 10;
+    } else {
+        secondsLeft = secondsLeft - 10;
+        resultLine.textContent = "Incorrect!!!"
+    }
 
-if (questionIndex < questionArray.length -1) {
-    showQuestion(questionIndex +1);
-} else {
-    gameOver();
-}
-questionCount++;
+    if (questionIndex < questionArray.length - 1) {
+        showQuestion(questionIndex + 1);
+    } else {
+        gameOver();
+    }
+    questionCount++;
 
+}
 function gameOver() {
-    questionsPage.style.display ="none";
+    questionsPage.style.display = "none";
     scores.style.display = "block";
     console.log(scores);
     finalScore.textContent = "Your final score is :" + totalScore;
@@ -152,7 +156,7 @@ function gameOver() {
 // local storage for current score and initials
 function showScore() {
     let currentList = localStorage.getItem("scoreList");
-    if (currentList !== null ){
+    if (currentList !== null) {
         freshList = JSON.parse(currentList);
         return freshList;
     } else {
@@ -161,28 +165,28 @@ function showScore() {
     return freshList;
 };
 
-function renderScore () {
+function renderScore() {
     userScore.innerHTML = "";
-    userScore.style.display ="block";
-    let highScores = sort();   
+    userScore.style.display = "block";
+    let highScores = sort();
     // Slice the high score array to only show the top 3 scores 
-    let topThree = highScores.slice(0,3);
+    let topThree = highScores.slice(0, 3);
     for (let i = 0; i < topThree.length; i++) {
         let item = topThree[i];
-    // Show the score list on score board
-    var li = document.createElement("li");
-    li.textContent = item.user + " - " + item.score;
-    li.setAttribute("data-index", i);
-    userScore.appendChild(li);
+        // Show the score list on score board
+        var li = document.createElement("li");
+        li.textContent = item.user + " - " + item.score;
+        li.setAttribute("data-index", i);
+        userScore.appendChild(li);
     }
 };
 
-function sortScore () {
+function sortScore() {
     let unsortedList = getScore();
     if (getScore === null) {
         return;
     } else {
-        unsortedList.sort(function(a,b) {
+        unsortedList.sort(function (a, b) {
             return b.score - a.score;
 
         })
@@ -211,18 +215,18 @@ function saveScore() {
 startButton.addEventListener("click", startQuiz);
 
 //click any choices button, go to the next question
-selectButtons.forEach(function(click) {
+selectButtons.forEach(function (click) {
 
     click.addEventListener("click", checkAnswer);
 });
 
 //save information and go to next page
-submitButton.addEventListener("click", function(event) {
+submitButton.addEventListener("click", function (event) {
     event.preventDefault();
     scores.style.display = "none";
     welcomePage.style.display = "none";
     highScorePage.style.display = "block";
-    questionsPage.style.display ="none";
+    questionsPage.style.display = "none";
     saveScore();
 });
 
@@ -230,24 +234,24 @@ submitButton.addEventListener("click", function(event) {
 finalScore.addEventListener("click", function(event) {
     event.preventDefault();
     scores.style.display = "none";
-    welcomPage.style.display = "none";
+    welcomePage.style.display = "none";
     highScorePage.style.display = "block";
-    questionsPage.style.display ="none";
+    questionsPage.style.display = "none";
     renderScore();
 });
 
 //go back to main page
-backButton.addEventListener("click",function(event){
-        event.preventDefault();
-        scores.style.display = "none";
-        welcomePage.style.display = "block";
-        highScorePage.style.display = "none";
-        questionsPage.style.display ="none";
-        location.reload();
+backButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    scores.style.display = "none";
+    welcomePage.style.display = "block";
+    highScorePage.style.display = "none";
+    questionsPage.style.display = "none";
+    location.reload();
 });
 
 //clear local storage and clear page shows
-clearButton.addEventListener("click",function(event) {
+clearButton.addEventListener("click", function (event) {
     event.preventDefault();
     localStorage.clear();
     renderScore();
