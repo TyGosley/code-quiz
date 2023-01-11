@@ -37,44 +37,48 @@ let questionCount = 1;
 // Placeholder questions
 let questionArray = [
     {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
+        question: "Inside which element do we put the JavaScript?",
+        choices: ["a. <js>", "b. <javascript>", "c. <script>", "d. <scripting>"],
+        answer: "c"
+    },
+    {
+        question: "Which of these is not a logical operator?",
+        choices: ["a. &&", "b. !", "c. ||", "&"],
         answer: "d"
     },
     {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
+        question: "Where is the corret place to insert a JavaScript?",
+        choices: ["a. <head>>", "b. <body>", "c. both head and body", "d. Neither"],
+        answer: "c"
+    },
+    {
+        question: "How can you add a comment in JavaScript?",
+        choices: ["a. <!-- This is a comment-->", "b. //This is a comment", "c. 'This is a comment'", "d. (This is a comment)"],
+        answer: "b"
+    },
+    {
+        question: "What is the correct way to write a JavaScript array?",
+        choices: ["a. var color = ['red', 'green', 'blue']", 
+                    "b. var color = (1:'red'), 2:'green'), 3:'blue')", 
+                    "c. var color = 'red', 'green', 'blue'",
+                    "d. var color = 1 = ('red'), 2 = ('green), 3 = ('blue')"], 
+        answer: "a"
+                
+    },
+    {
+        question: "What does JSON stand for?",
+        choices: ["a. JavaScript Oriented Notation", "b. JavaScript Object Notation", "c. Just Script Object Notation", "d. JavaScript Online Notation"],
+        answer: "b"
+    },
+    {
+        question: "JavaScript can be used to store?",
+        choices: ["a. Strings", "b. Booleans", "c. Numbers", "d. All of the above"],
         answer: "d"
     },
     {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
-        answer: "d"
-    },
-    {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
-        answer: "d"
-    },
-    {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
-        answer: "d"
-    },
-    {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
-        answer: "d"
-    },
-    {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
-        answer: "d"
-    },
-    {
-        question: "Question 1 : Are you awesome?",
-        choices: ["a. yes", "b. no", "c. hell yes", "d. Barney Stinson Awesome"],
-        answer: "d"
+        question: "To convert a string to a number, which function do we use?",
+        choices: ["a. ParseInt", "b. ParseNum", "c. ParseNumber", "d. ParseString"],
+        answer: "a"
     },
 ];
 
@@ -110,7 +114,7 @@ function startQuiz() {
     countDown();
     showQuestion(questionIndex);
 }
-// Is this labeled right?
+
 function showQuestion(n) {
     console.log(questionArray);
     askQuestion.textContent = questionArray[n].question;
@@ -120,14 +124,14 @@ function showQuestion(n) {
     answerButton4.textContent = questionArray[3].choices;
     questionNumber = n;
 }
-
+// TODO, I think this is why my questions stop working after 2
 function checkAnswer(event) {
     event.preventDefault();
     resultLine.style.display = "block";
     setTimeout(function () {
         resultLine.style.display = "none";
     }, 1000);
-    // WHY IS THIS NOT WORKING?
+    
     if (questionArray[questionIndex].answer == event.target.value) {
         resultLine.textContent = "Correct!!!";
         totalScore = totalScore + 10;
