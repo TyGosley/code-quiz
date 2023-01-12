@@ -160,7 +160,7 @@ function gameOver() {
 
 // local storage for current score and initials
 function showScore() {
-    let currentList = localStorage.getItem("scoreList");
+    let currentList = localStorage.getItem("ScoreList");
     if (currentList !== null) {
         freshList = JSON.parse(currentList);
         return freshList;
@@ -180,19 +180,19 @@ function renderScore() {
         let item = topThree[i];
         // Show the score list on score board
         var li = document.createElement("li");
-        li.textContent = item.user + " - " + item.score;
+        li.textContent = item.user + " - " + item.scores;
         li.setAttribute("data-index", i);
         userScore.appendChild(li);
     }
 };
-// keep getting console log error here
+
 function sortScore() {
     let unsortedList = showScore();
     if (showScore == null) {
         return;
     } else {
         unsortedList.sort(function (a, b) {
-            return b.score - a.score;
+            return b.scores - a.scores;
 
         })
         return unsortedList;
