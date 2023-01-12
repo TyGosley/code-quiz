@@ -191,7 +191,7 @@ function sortScore() {
     if (showScore == null) {
         return;
     } else {
-        unsortedList.sortScore(function (a, b) {
+        unsortedList.sort(function (a, b) {
             return b.score - a.score;
 
         })
