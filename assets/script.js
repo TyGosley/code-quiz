@@ -8,10 +8,10 @@ let questionsPage = document.querySelector("#questions-page");
 let askQuestion = document.querySelector("#ask-question");
 
 let selectButtons = document.querySelectorAll(".selection-button");
-let answerButton1 = document.querySelectorAll("#answer-button1");
-let answerButton2 = document.querySelectorAll("#answer-button2");
-let answerButton3 = document.querySelectorAll("#answer-button3");
-let answerButton4 = document.querySelectorAll("#answer-button4");
+let answerButton1 = document.querySelector("#answer-button1");
+let answerButton2 = document.querySelector("#answer-button2");
+let answerButton3 = document.querySelector("#answer-button3");
+let answerButton4 = document.querySelector("#answer-button4");
 
 
 let resultLine = document.querySelector("#result-line");
