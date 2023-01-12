@@ -13,7 +13,7 @@ let answerButton2 = document.querySelectorAll("#answer-button2");
 let answerButton3 = document.querySelectorAll("#answer-button3");
 let answerButton4 = document.querySelectorAll("#answer-button4");
 
-// TODO: Need to add . or # in querySelector
+
 let resultLine = document.querySelector("#result-line");
 let scores = document.querySelector("#submit-page");
 let finalScore = document.querySelector("#final-score");
@@ -34,7 +34,7 @@ let totalScore = 0;
 let questionCount = 1;
 
 // Create & define questions here
-// Placeholder questions
+
 let questionArray = [
     {
         question: "Inside which element do we put the JavaScript?",
@@ -79,7 +79,7 @@ let questionArray = [
         question: "To convert a string to a number, which function do we use?",
         choices: ["a. ParseInt", "b. ParseNum", "c. ParseNumber", "d. ParseString"],
         answer: "a"
-    },
+    }
 ];
 
 
@@ -117,7 +117,7 @@ function startQuiz() {
 
 
 function showQuestion(n) {
-    console.log(questionArray);
+    // console.log(questionArray);
     askQuestion.textContent = questionArray[n].question;
     answerButton1.textContent = questionArray[n].choices[0];
     answerButton2.textContent = questionArray[n].choices[1];
@@ -173,7 +173,7 @@ function showScore() {
 function renderScore() {
     userScore.innerHTML = "";
     userScore.style.display = "block";
-    let highScores = sort();
+    let highScores = sortScore();
     // Slice the high score array to only show the top 3 scores 
     let topThree = highScores.slice(0, 3);
     for (let i = 0; i < topThree.length; i++) {
@@ -185,13 +185,13 @@ function renderScore() {
         userScore.appendChild(li);
     }
 };
-
+// keep getting console log error here
 function sortScore() {
-    let unsortedList = getScore();
-    if (getScore === null) {
+    let unsortedList = showScore();
+    if (showScore == null) {
         return;
     } else {
-        unsortedList.sort(function (a, b) {
+        unsortedList.sortScore(function (a, b) {
             return b.score - a.score;
 
         })
@@ -201,7 +201,7 @@ function sortScore() {
 
 // push new user score/initials to local storage
 function addItem(n) {
-    let addedList = getScore();
+    let addedList = showScore();
     addedList.push(n);
     localStorage.setItem("ScoreList", JSON.stringify(addedList));
 };
