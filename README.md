@@ -34,9 +34,9 @@ THEN I can save my initials and score
 
 Once the Code Quiz page is open, simply click on the "Start Quiz" button and answer the following questions. Each correct answer will score you 10 points.  Each incorrect answer will deduct 10 points as well as 10 seconds from the timer.  You have 75 seconds to complete this quiz.  Once you are complete, enter your initials and see how they stack up to the highscores. Go forth and "Be AWESOME!"
 
-The goal was to create a code quiz with questions about basic JavaScript. This was the most challenging assignment to date. There were concepts used that still are not fully understood. 
+The goal was to create a code quiz with questions about basic JavaScript. This was the most challenging assignment to date. There were concepts used that are still not fully understood. Time to practice. 
 
-Probably the biggest takeaway from this assignment was the naming of classes, id's, and variables.  I saw a lot of bugs towards the end because I was getting my variables names confused.  I need to label different and better for best practice in the future.
+Probably the biggest takeaway from this assignment was the naming of classes, id's, and variables.  I saw a lot of bugs towards the end because I was getting my variable names confused.  I need to label better and differentiate my names for best practice in the future.
 
 ## Table of Contents 
 
@@ -46,7 +46,7 @@ Probably the biggest takeaway from this assignment was the naming of classes, id
 
 ## Usage
 
-To navigate to this page, please [CLICK HERE](TODO:).  To use the Chrome DevTools, simply "right click" and use the inspect function or use keyboard shortcuts by press Command+Option+I (macOS) or Control+Shift+I (Windows).
+To navigate to this page, please [CLICK HERE](https://tygosley.github.io/code-quiz/).  To use the Chrome DevTools, simply "right click" and use the inspect function or use keyboard shortcuts by press Command+Option+I (macOS) or Control+Shift+I (Windows).
   
 ## Screenshot
 
