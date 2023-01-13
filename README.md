@@ -50,7 +50,7 @@ To navigate to this page, please [CLICK HERE](TODO:).  To use the Chrome DevTool
   
 ## Screenshot
 
-![](code-quiz-screenshot.png)
+![](./assets/code-quiz-screenshot.png)
 
 ## Credits
 
