@@ -255,6 +255,15 @@ backButton.addEventListener("click", function (event) {
     location.reload();
 });
 
+viewHighScores.addEventListener("click", function (event) {
+    event.preventDefault();
+    scores.style.display = "none";
+    welcomePage.style.display = "none";
+    highScorePage.style.display = "block";
+    questionsPage.style.display = "none";
+    renderScore();
+});
+
 //clear local storage and clear page shows
 clearButton.addEventListener("click", function (event) {
     event.preventDefault();
