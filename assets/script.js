@@ -43,7 +43,7 @@ let questionArray = [
     },
     {
         question: "Which of these is not a logical operator?",
-        choices: ["a. &&", "b. !", "c. ||", "&"],
+        choices: ["a. &&", "b. !", "c. ||", "d. &"],
         answer: "d"
     },
     {
